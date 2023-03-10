@@ -1,6 +1,6 @@
 {
   "note": "This is a sample config file. You should change the mockDirectory to a more reasonable path.",
-  "mockDirectory": "/file/system/path/to/apimocker/samplemocks/",
+  "mockDirectory": "./blogmocks",
   "staticDirectory": "/file/system/path/to/static/directory",
   "staticPath": "/web/path/to/static/directory",
   "quiet": false,
@@ -11,7 +11,10 @@
     "first": {
       "mockFile": "foo.json",
       "latency": 20,
-      "verbs": ["get", "post"],
+      "verbs": [
+        "get",
+        "post"
+      ],
       "responses": {
         "get": {
           "mockFile": "king.json"
@@ -22,71 +25,156 @@
       }
     },
     "second": {
-      "verbs": ["delete", "post"],
+      "verbs": [
+        "delete",
+        "post"
+      ],
       "responses": {
-        "delete": {"httpStatus": 204},
+        "delete": {
+          "httpStatus": 204
+        },
         "post": {
           "contentType": "foobar",
           "mockFile": "king.json"
         }
       }
     },
+    "navContent": {
+      "mockFile": "navContent.json",
+      "verbs": [
+        "post",
+        "get"
+      ]
+    },
+    "footerContent": {
+      "mockFile": "footerContent.json",
+      "verbs": [
+        "post",
+        "get"
+      ]
+    },
+    "popularArticle": {
+      "mockFile": "popularArticle.json",
+      "verbs": [
+        "post",
+        "get"
+      ]
+    },
+    "articleIntroduction": {
+      "mockFile": "articleIntroduction.json",
+      "verbs": [
+        "post",
+        "get"
+      ]
+    },
+    "articleIntroduction1": {
+      "mockFile": "articleIntroduction1.json",
+      "verbs": [
+        "post",
+        "get"
+      ]
+    },
     "nested/ace": {
       "mockFile": "ace.json",
-      "verbs": ["post", "get"],
+      "verbs": [
+        "post",
+        "get"
+      ],
       "switch": "customerId"
     },
-	"nested/ace2": {
+    "nested/ace2": {
       "mockFile": "ace.json",
-      "verbs": ["post", "get"],
-      "switch": ["customerId","multitest"]
+      "verbs": [
+        "post",
+        "get"
+      ],
+      "switch": [
+        "customerId",
+        "multitest"
+      ]
     },
     "var/:id/:color": {
       "mockFile": "xml/queen.xml",
-      "verbs": ["all"],
-      "switch": ["id", "color"]
+      "verbs": [
+        "all"
+      ],
+      "switch": [
+        "id",
+        "color"
+      ]
     },
     "login": {
-      "verbs": ["post"],
-      "switch": ["userId", "password"],
+      "verbs": [
+        "post"
+      ],
+      "switch": [
+        "userId",
+        "password"
+      ],
       "responses": {
-        "post": {"httpStatus": 401, "mockFile": "sorry.json"}
+        "post": {
+          "httpStatus": 401,
+          "mockFile": "sorry.json"
+        }
       },
       "switchResponses": {
-        "userIduser1passwordgood": {"httpStatus": 200, "mockFile": "king.json"},
-        "userIdadminpasswordgood": {"httpStatus": 200}
+        "userIduser1passwordgood": {
+          "httpStatus": 200,
+          "mockFile": "king.json"
+        },
+        "userIdadminpasswordgood": {
+          "httpStatus": 200
+        }
       }
     },
-      "template/:name/:number" :{
-        "mockFile": "templateSample.json",
-        "enableTemplate": true,
-	"verbs":["get"],
-	"contentType":"application/json"
-    },
-    "templateSwitchGetParams" : {
-      "mockFile": "templateSwitchSample.json",
-      "verbs":["get"],
-      "templateSwitch": ["appID",
-                         "appName",
-                         "userName",
-                         "userAge"],
+    "template/:name/:number": {
+      "mockFile": "templateSample.json",
+      "enableTemplate": true,
+      "verbs": [
+        "get"
+      ],
       "contentType": "application/json"
     },
-    "templateSwitchPostJsonPath" : {
+    "templateSwitchGetParams": {
       "mockFile": "templateSwitchSample.json",
-      "verbs": ["post"],
-      "templateSwitch": [{"key": "appID",
-                         "switch": "$.data.appID",
-                         "type": "jsonpath"},
-                         {"key": "appName",
-                          "switch": "$.data.appName",
-                          "type": "jsonpath"},
-                         {"key": "userName",
-                          "switch": "$.data.user.userName",
-                          "type": "jsonpath"},
-                         {"key": "userAge",
-                          "switch": "$.data.user.userAge",
-                          "type": "jsonpath"}],
+      "verbs": [
+        "get"
+      ],
+      "templateSwitch": [
+        "appID",
+        "appName",
+        "userName",
+        "userAge"
+      ],
+      "contentType": "application/json"
+    },
+    "templateSwitchPostJsonPath": {
+      "mockFile": "templateSwitchSample.json",
+      "verbs": [
+        "post"
+      ],
+      "templateSwitch": [
+        {
+          "key": "appID",
+          "switch": "$.data.appID",
+          "type": "jsonpath"
+        },
+        {
+          "key": "appName",
+          "switch": "$.data.appName",
+          "type": "jsonpath"
+        },
+        {
+          "key": "userName",
+          "switch": "$.data.user.userName",
+          "type": "jsonpath"
+        },
+        {
+          "key": "userAge",
+          "switch": "$.data.user.userAge",
+          "type": "jsonpath"
+        }
+      ],
       "contentType": "application/json"
     },
     "users": {
@@ -120,23 +208,32 @@
       }
     },
     "upload": {
-      "verbs": ["post"],
+      "verbs": [
+        "post"
+      ],
       "mockFile": "uploads/sampleFile",
       "uploadDirectory": "uploads"
     },
     "upload-form": {
-      "verbs": ["get"],
+      "verbs": [
+        "get"
+      ],
       "mockFile": "upload-form.html",
       "contentType": "text/html"
+    },
     "raw": {
       "mockBody": "{ \"text\" : \"Good Job!\" }",
-      "verbs": ["all"]
+      "verbs": [
+        "all"
+      ]
     },
     "raw/template/:message": {
       "mockBody": "{ \"text\" : \"@message\" }",
-      "enableTemplate" : true,
+      "enableTemplate": true,
       "contentType": "application/json",
-      "verbs": ["get"]
+      "verbs": [
+        "get"
+      ]
     }
   }
 }
