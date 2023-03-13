@@ -1,6 +1,6 @@
 {
   "note": "This is a sample config file. You should change the mockDirectory to a more reasonable path.",
-  "mockDirectory": "./blogmocks",
+  "mockDirectory": "./samplemocks",
   "staticDirectory": "/file/system/path/to/static/directory",
   "staticPath": "/web/path/to/static/directory",
   "quiet": false,
@@ -60,18 +60,48 @@
         "get"
       ]
     },
+    "articleDetail": {
+      "mockFile": "article.json",
+      "verbs": [
+        "get"
+      ]
+    },
+    "basicInfo": {
+      "mockFile": "basicInfo.json",
+      "verbs": [
+        "get"
+      ]
+    },
+    "page/:id": {
+      "mockFile": "page.json",
+      "enableTemplate": true,
+      "verbs": [
+        "get",
+        "post"
+      ],
+      "contentType": "application/json"
+    },
+    "articleDetail/:id": {
+      "mockFile": "article.json",
+      "verbs": [
+        "get"
+      ],
+      "switch": "id",
+      "jsonPathSwitchResponse": {
+        "jsonpath": "$[?(@.id==#id#)]",
+        "mockFile": "article.json",
+        "forceFirstObject": true
+      }
+    },
     "articleIntroduction": {
       "mockFile": "articleIntroduction.json",
       "verbs": [
         "post",
         "get"
-      ]
-    },
-    "articleIntroduction1": {
-      "mockFile": "articleIntroduction1.json",
-      "verbs": [
-        "post",
-        "get"
+      ],
+      "switch": [
+        "pageId",
+        "part"
       ]
     },
     "nested/ace": {
