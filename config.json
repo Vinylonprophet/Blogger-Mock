@@ -72,6 +72,18 @@
         "get"
       ]
     },
+    "putClassify": {
+      "mockFile": "putClassify.json",
+      "verbs": [
+        "get",
+        "post"
+      ],
+      "switch": [
+        "tag",
+        "sort"
+      ],
+      "contentType": "application/json"
+    },
     "page/:id": {
       "mockFile": "page.json",
       "enableTemplate": true,
@@ -102,6 +114,13 @@
       "switch": [
         "pageId",
         "part"
+      ]
+    },
+    "classify": {
+      "mockFile": "classify.json",
+      "verbs": [
+        "get",
+        "post"
       ]
     },
     "nested/ace": {
