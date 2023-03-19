@@ -72,6 +72,13 @@
         "get"
       ]
     },
+    "searchArticle": {
+      "mockFile": "searchArticle.json",
+      "verbs": [
+        "get",
+        "post"
+      ]
+    },
     "putClassify": {
       "mockFile": "putClassify.json",
       "verbs": [
